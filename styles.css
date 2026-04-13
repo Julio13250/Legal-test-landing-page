@@ -1,3 +1,15 @@
+.hero .container {
+  width: 100%;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+* {
+  box-sizing: border-box;
+}
 .nav-container { 
     background-color:white ; 
     display: flex; 
@@ -7,14 +19,15 @@
 .nav-links{ 
     color: #B08D47; 
     text-decoration: none; 
-    font-weight: 500; }/* Conteneur parent pour toutes les sections-cartes */
+    font-weight: 500; }
 .cards {
-    display: flex;
-    flex-wrap: wrap;           /* Les cartes passent à la ligne si nécessaire */
-    gap: 20px;                 /* Espace entre cartes */
-    justify-content: center; /* Aligne les cartes à gauche */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  justify-items: center;
+  align-items: stretch;
   }
-  .nav-links :hover{
+  .nav-links:hover{
      color: #C1A45F; 
     }
     #navlogo{ 
@@ -43,7 +56,8 @@
         font-family: Arial, Helvetica, sans-serif; 
     }
     .hero{ 
-        height: 500px; 
+      min-height: 60vh;
+      padding: 60px 20px;
         background-image: url('https://st.depositphotos.com/1891797/1691/i/450/depositphotos_16915795-stock-photo-the-book-is-a-pen.jpg'); 
         background-size: cover; 
         background-position: center; 
@@ -63,17 +77,21 @@
         font-family: Arial, Helvetica, sans-serif;
     } 
     .cta-group{ 
-        display: flex; 
-        justify-content: space-around; 
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
     .link{ 
         text-decoration: none; 
-        border: 20px solid rgba(176, 141, 71, 0.5); 
         background-color: #B08D47; 
         color: white; 
         border-radius: 20px; 
+        padding: 14px 24px;
+        background-color: #B08D47;
+        border-radius: 20px;
     } 
-    .link :hover{ 
+    .link:hover{ 
         border-color: rgba(176, 141, 71, 0.8); 
     } 
     .microcopy{
@@ -93,27 +111,29 @@
       
         display: flex;
         flex-direction: column;
-        align-items: center;   /* centre les <li> horizontalement */
+        align-items: center;
       }
-  /* Chaque section = carte */
+ 
   .cards .section {
     background-color: #B08D47;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    width: 20%;
-    min-width: 280px;
+    flex: 1 1 300px;
+    max-width: 400px;
+    width: 100%;
     box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
   
-  /* Titre H2 */
   .cards .section h2 {
     text-align: center;
     margin-bottom: 20px;
     font-family: Arial, Helvetica, sans-serif;
   }
   
-  /* Contenu interne des cartes */
   .features, .steps, .testimonials, .list {
     margin-top: 10px;
     display: flex;
@@ -121,7 +141,6 @@
     gap: 10px;
   }
   
-  /* Éléments internes */
   .feature, .step, .list li, blockquote {
     background-color: #ffffff;
     padding: 12px 15px;
@@ -130,8 +149,7 @@
     text-align: center;
     font-weight: 500;
   }
-  
-  /* Testimonials */
+
   blockquote {
     font-style: italic;
     font-size: 1.05rem;
@@ -153,14 +171,12 @@
     transition: all 0.25s ease;
 }
 .cta-section {
-    max-width: 520px;
+  text-align: center;
     width: 100%;
-    margin: 0 auto;
-  
-    text-align: center;
+    max-width: 500px;
+    justify-self: center;
     padding: 52px 40px;
     border-radius: 22px;
-  
     background-color: #FFADFF !important;
   background-image: linear-gradient(135deg, #FFADFF 0%, #ffffff 70%) !important;
     border: 1px solid rgba(120, 90, 255, 0.25);
@@ -185,5 +201,72 @@
     font-size:larger;
 }
 .cards{
-    background-color: black;
+    background-color: white;
+}
+@media (max-width: 768px) {
+ .nav-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav {
+    flex-direction: column;
+    gap: 15px;
+    margin: 0;
+    padding: 10px 0;
+  }
+
+  #navlogo {
+    height: 70px;
+  }
+.hero {
+    height: auto;
+    padding: 60px 20px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+ .cta-group {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .link {
+    width: 80%;
+    text-align: center;
+    padding: 12px 20px;
+  }
+ .cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+  .cards .section {
+    width: 100%;
+    max-width: 500px;
+  }
+.cta-section {
+    width: 90%;
+    padding: 40px 20px;
+  }
+
+  .lk {
+    width: 100%;
+    text-align: center;
+  }
+.micro {
+    font-size: 16px;
+    margin-top: 40px;
+  }
+
+  blockquote {
+    font-size: 0.95rem;
+  }
+
 }
